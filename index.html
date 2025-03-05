@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apichart Tadsawat Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Kanit", sans-serif;
+      }
+      body {
+        background-color: #f5f5f7;
+        color: #1d1d1f;
+        text-align: center;
+      }
+      h2 {
+        color: #1d1d1f; /* กำหนดให้ตัวอักษรเป็นสีเทาเข้ม */
+      }
+
+      /* Navbar */
+      header {
+        background: #ffffff;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+      }
+      .social-icons {
+        display: flex;
+        gap: 15px;
+      }
+      .social-icons img {
+        width: 30px;
+        height: 30px;
+      }
+      /* Name Section */
+      .name-box {
+        background: #333;
+        color: white;
+        padding: 40px;
+      }
+      .name-box h1 {
+        font-size: 3em;
+      }
+      .name-box p {
+        font-size: 1.5em;
+      }
+      .artwork-header {
+        display: flex;
+        justify-content: center; /* จัดกลางแนวนอน */
+        align-items: center;
+        width: 100%;
+        margin: 20px 0;
+      }
+
+      .artwork-header img {
+        width: 100%; /* ทำให้รูปยืดเต็มจอ */
+        height: auto;
+        display: block;
+        border-radius: 0; /* เอามุมโค้งออก */
+        box-shadow: none; /* เอาเงาออกถ้าไม่ต้องการ */
+      }
+
+      /* Skills Section */
+      .skills {
+        padding: 50px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+        max-width: 1000px;
+        margin: auto;
+      }
+      .skill-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .skill-item img {
+        width: 60px; /* ปรับขนาดตามต้องการ */
+        height: 60px; /* ปรับขนาดตามต้องการ */
+        object-fit: contain; /* ป้องกันการบีบอัดรูป */
+      }
+      /* Artwork Section */
+      .artwork-box,
+      .project-box {
+        margin: 40px 0;
+        padding: 40px;
+        background: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .art-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .art-grid img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+      .poster-grid {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(300px, 1fr)
+        ); /* ปรับขนาดอัตโนมัติ */
+        gap: 20px; /* ระยะห่างระหว่างรูป */
+        max-width: 100%; /* ไม่ให้เกินขนาดหน้าจอ */
+        margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
+        padding: 20px;
+      }
+
+      .poster-grid img {
+        width: 100%; /* ขยายเต็มพื้นที่ของ grid */
+        height: auto; /* คงอัตราส่วนของรูป */
+        object-fit: cover; /* ทำให้รูปภาพเต็มพื้นที่โดยไม่ผิดสัดส่วน */
+        border-radius: 10px; /* มุมโค้ง (สามารถเอาออกได้) */
+      }
+
+      /* Project Section */
+
+      .project-box {
+        text-align: center;
+        margin: 40px 0;
+      }
+
+      .project-box h2 {
+        font-size: 48px;
+        font-weight: bold;
+        color: #1d1d1f;
+        margin-bottom: 20px;
+      }
+
+      .project-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* ระยะห่างระหว่างรูป */
+      }
+
+      .project-gallery img {
+        width: 100%; /* ทำให้รูปเต็มจอ */
+        max-width: 1366px; /* จำกัดขนาดสูงสุด */
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px; /* มุมโค้งนิดหน่อย (ถ้าต้องการเอาออกก็ได้) */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ภาพดูมีมิติ */
+      }
+      .project-box::after {
+        content: "";
+        display: block;
+        width: 80%; /* ความกว้างของเส้น */
+        height: 3px; /* ความหนาของเส้น */
+        background-color: #ccc; /* สีของเส้น */
+        margin: 30px auto; /* จัดให้อยู่ตรงกลางและเพิ่มระยะห่าง */
+        border-radius: 5px; /* ทำให้เส้นโค้งมน */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>Portfolio</h2>
+      <div class="social-icons">
+        <a href="https://github.com/aum-apichart"
+          ><img src="icon/github.png" alt="GitHub"
+        /></a>
+        <a href="https://www.linkedin.com/in/apichart-tadsawat-1920a3354/"
+          ><img src="icon/linkedin.png" alt="LinkedIn"
+        /></a>
+        <a href="mailto:apichart.tsw@gmail.com"
+          ><img src="icon/gmail.png" alt="Gmail"
+        /></a>
+      </div>
+    </header>
+
+    <section class="name-box">
+      <h1>Apichart Tadsawat</h1>
+      <p>นายอภิชาติ ทศวัฒน์</p>
+    </section>
+
+    <section class="skills">
+      <div class="skill-item">
+        <img src="icon/html.png" alt="HTML" />
+        <p>HTML</p>
+      </div>
+      <div class="skill-item">
+        <img src="icon/css.png" alt="CSS" />
+        <p>CSS</p>
+      </div>
+      <div class="skill-item">
+        <img src="icon/php.png" alt="PHP" />
+        <p>PHP</p>
+      </div>
+      <div class="skill-item">
+        <img src="icon/javascript.png" alt="JavaScript" />
+        <p>JavaScript</p>
+      </div>
+      <div class="skill-item">
+        <img src="icon/angular.png" alt="Angular" />
+        <p>Angular</p>
+      </div>
+      <div class="skill-item">
+        <img src="icon/mysql.png" alt="MySQL" />
+        <p>MySQL</p>
+      </div>
+      <div class="skill-item">
+        <img src="icon/mongo.png" alt="MongoDB" />
+        <p>MongoDB</p>
+      </div>
+      <div class="skill-item">
+        <img src="icon/github.png" alt="Git" />
+        <p>Git</p>
+      </div>
+      <div class="skill-item">
+        <img src="icon/vscode.png" alt="VSCode" />
+        <p>VS Code</p>
+      </div>
+      <div class="skill-item">
+        <img src="icon/figma.png" alt="Figma" />
+        <p>Figma</p>
+      </div>
+      <div class="skill-item">
+        <img src="icon/photoshop.png" alt="Photoshop" />
+        <p>Adobe Photoshop</p>
+      </div>
+    </section>
+
+    <section class="artwork-box">
+      <div class="artwork-header">
+        <img src="img/title2.png" alt="ผลงาน Artwork" />
+      </div>
+
+      <div class="art-grid">
+        <img src="icon/work1.png" alt="Artwork 1" />
+        <img src="icon/work2.png" alt="Artwork 2" />
+        <img src="icon/work4.png" alt="Artwork 4" />
+        <img src="icon/work5.png" alt="Artwork 5" />
+        <img src="icon/work6.png" alt="Artwork 6" />
+      </div>
+      <div class="poster-grid">
+        <img src="poster/1.jpg" alt="Poster 1" />
+        <img src="poster/2.jpg" alt="Poster 2" />
+        <img src="poster/3.jpg" alt="Poster 3" />
+      </div>
+    </section>
+
+    <section class="project-box">
+      <div class="project-header">
+        <img src="img/title.png" alt="title" />
+      </div>
+      <div class="project-gallery">
+        <img src="project/1.png" alt="Project 1" />
+        <img src="project/2.png" alt="Project 2" />
+        <img src="project/3.png" alt="Project 3" />
+        <img src="project/4.png" alt="Project 4" />
+        <img src="project/5.png" alt="Project 5" />
+        <img src="project/6.png" alt="Project 6" />
+      </div>
+    </section>
+  </body>
+</html>
